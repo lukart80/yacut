@@ -10,7 +10,7 @@ def test_fields(_app):
     )
     inspector = inspect(URL_map)
     fields = [i.key for i in inspector.mapper.column_attrs]
-    assert all(field in ['id', 'original', 'short', 'timestamp'] for field in fields), (
+    assert all(field in ['id', 'original_link', 'custom_id', 'timestamp'] for field in fields), (
         'В модели не найдены все необходимые поля. '
-        'Проверьте модель: в ней должны быть поля id, original, short и timestamp.'
+        'Проверьте модель: в ней должны быть поля id, original_link, custom_id и timestamp.'
     )
