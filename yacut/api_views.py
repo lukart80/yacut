@@ -1,6 +1,6 @@
 import re
 
-from flask import request, jsonify, url_for
+from flask import request, jsonify
 
 from . import app, db
 from .exceptions import ApiUsageException
