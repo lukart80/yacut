@@ -31,12 +31,8 @@ def create_short_url_api():
     )
     db.session.add(url_map)
     db.session.commit()
-    response = {
-        'url': data.get('url'),
-        'short_link': url_for('short_view', custom_id=custom_id, _external=True)
-    }
 
-    return jsonify(response), 201
+    return jsonify(url_map.to_dict()), 201
 
 
 @app.route('/api/id/<string:short>/')
