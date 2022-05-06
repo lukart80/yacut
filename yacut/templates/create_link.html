@@ -18,21 +18,21 @@
                             <div>
                                 <div>
                                     {{ form.csrf_token }}
-                                    {{ form.original_link(class="form-control form-control-lg py-2 mb-3", id="form-title", placeholder=form.original_link.label.text) }}
+                                    {{ form.original(class="form-control form-control-lg py-2 mb-3", id="form-title", placeholder=form.original.label.text) }}
                                     <p>
-                                        {% if form.original_link.errors %}
-                                        {% for error in form.original_link.errors %}
+                                        {% if form.original.errors %}
+                                        {% for error in form.original.errors %}
                                         <span style="color:red">{{ error }}</span>
                                         {% endfor %}
                                         {% endif %}
                                     </p>
                                 </div>
                                 <div>
-                                    {{ form.custom_id(class="form-control form-control-lg py-2 mb-3", id="form-link", placeholder=form.custom_id.label.text) }}
+                                    {{ form.short(class="form-control form-control-lg py-2 mb-3", id="form-link", placeholder=form.short.label.text) }}
 
                                     <p>
-                                        {% if form.custom_id.errors %}
-                                        {% for error in form.custom_id.errors %}
+                                        {% if form.short.errors %}
+                                        {% for error in form.short.errors %}
                                         <span style="color:red">{{ error }}</span>
                                         {% endfor %}
                                         {% endif %}
@@ -60,9 +60,9 @@
                             {% endfor %}
                             {% endif %}
                             {% endwith %}
-                            {% if short %}
+                            {% if custom_id %}
                                 <h5 class="text-center">Ваша короткая ссылка готова</h5>
-                                <a href="{{ url_for('short_view', short=short) }}" class="text-center">{{ url_for('short_view', short=short, _external=True) }}</a>
+                                <a href="{{ url_for('short_view', custom_id=custom_id, _external=True) }}" class="text-center">{{ url_for('short_view', custom_id=custom_id, _external=True) }}</a>
                             {% endif %}
 
                         </p>
