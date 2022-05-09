@@ -31,7 +31,7 @@
                                     {{ form.custom_id(class="form-control form-control-lg py-2 mb-3", id="form-link", placeholder=form.short.label.text) }}
 
                                     <p>
-                                        {% if form.short.errors %}
+                                        {% if form.custom_id.errors %}
                                         {% for error in form.short.errors %}
                                         <span style="color:red">{{ error }}</span>
                                         {% endfor %}
