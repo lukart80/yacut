@@ -43,4 +43,4 @@ def short_view(custom_id):
     url_map = URL_map.query.filter_by(short=custom_id).first()
     if not url_map:
         abort(404)
-    return redirect(url_map.original_link)
+    return redirect(url_map.original)
