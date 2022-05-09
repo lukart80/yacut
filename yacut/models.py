@@ -14,7 +14,7 @@ class URL_map(db.Model):
     def to_dict(self):
         return dict(
             url=self.original,
-            short_link=url_for('short_view', custom_id=self.short, _external=True)
+            custom_id=url_for('short_view', custom_id=self.short, _external=True)
         )
 
     def to_dict_only_url(self):

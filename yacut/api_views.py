@@ -15,7 +15,7 @@ def create_short_url_api():
         raise ApiUsageException('Отсутствует тело запроса')
     if 'url' not in data:
         raise ApiUsageException('"url" является обязательным полем!')
-    custom_id = data.get('short')
+    custom_id = data.get('custom_id')
     if custom_id:
         if len(custom_id) > 16:
             raise ApiUsageException('Указано недопустимое имя для короткой ссылки')

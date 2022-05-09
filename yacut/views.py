@@ -20,7 +20,7 @@ def get_unique_short_id():
 def index_view():
     form = UriForm()
     if form.validate_on_submit():
-        custom_id = form.short.data
+        custom_id = form.custom_id.data
         if URL_map.query.filter_by(short=custom_id).first():
             flash(f'Имя {custom_id} уже занято!')
             return render_template('create_link.html', form=form)
@@ -28,7 +28,7 @@ def index_view():
         if not custom_id:
             custom_id = get_unique_short_id()
         url_map = URL_map(
-            original=form.original.data,
+            original=form.original_link.data,
             short=custom_id
         )
         db.session.add(url_map)
@@ -43,4 +43,4 @@ def short_view(custom_id):
     url_map = URL_map.query.filter_by(short=custom_id).first()
     if not url_map:
         abort(404)
-    return redirect(url_map.original)
+    return redirect(url_map.original_link)

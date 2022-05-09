@@ -4,11 +4,11 @@ from wtforms.validators import DataRequired, Length, Optional, Regexp
 
 
 class UriForm(FlaskForm):
-    original = URLField(
+    original_link = URLField(
         'Длинная ссылка',
         validators=[DataRequired(message='Обязательное поле')]
     )
-    short = StringField(
+    custom_id = StringField(
         'Ваш вариант короткой ссылки',
         validators=[Length(1, 16), Optional(), Regexp('^[A-Za-z0-9]*$', message='Некоректные символы')]
     )
