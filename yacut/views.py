@@ -9,7 +9,7 @@ from .models import URL_map
 
 
 def get_unique_short_id():
-    short = ''.join(random.choices(string.ascii_letters + string.digits, k=6))
+    short = ''.join(random.choices(string.ascii_letters + string.digits, k=6)).lower()
     while URL_map.query.filter_by(short=short).first():
         short = ''.join(
             random.choices(string.ascii_letters + string.digits, k=6)).lower()
