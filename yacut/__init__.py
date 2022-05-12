@@ -10,3 +10,9 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from . import views, models, api_views, error_handlers, exceptions
+
+NO_BODY_RESPONSE = 'Отсутствует тело запроса'
+URL_FIELD_REQUIRED = '"url" является обязательным полем!'
+INCORRECT_SHORT_URL = 'Указано недопустимое имя для короткой ссылки'
+SHORT_URL_EXISTS = 'Имя "{}" уже занято.'
+ID_NOT_FOUND = 'Указанный id не найден'
